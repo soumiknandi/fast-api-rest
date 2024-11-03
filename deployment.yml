@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fast-api-rest
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fast-api-rest
+  template:
+    metadata:
+      labels:
+        app: fast-api-rest
+    spec:
+      containers:
+        - name: fast-api-rest
+          image: soumiknandi/fast-api-rest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: host
+              value: postgres

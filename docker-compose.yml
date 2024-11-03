@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fastapi
+
+  fast-api-rest:
+    image: fast-api-rest
+    depends_on:
+      - postgres
+    restart: always
+    environment:
+      username: postgres
+      password: password
+      host: postgres
+      port: 5432
+      database: fastapi
+    ports:
+      - "8000:8000"
+
+networks:
+  postgres:
+    driver: bridge
+  fast-api-rest:
+    driver: bridge
