@@ -6,3 +6,8 @@
 
 - Docker and Kubernates examples are added.
 
+## Docker build
+
+```properties
+docker build -t soumiknandi/fast-api-rest .
+```
