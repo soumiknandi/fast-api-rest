@@ -1,13 +1,54 @@
-# Python Fast API Example
+# 📝 FastAPI ToDo App with Docker, Kubernetes & Argo CD
 
-## Details
+This is a simple and scalable ToDo API built with Python FastAPI, containerized using Docker, deployed on Kubernetes.
 
-- A simple CURD application on python fast API using postgres database to store the data.
+## 🔧 Tech Stack
+- 🐍 Python FastAPI – Lightweight, high-performance REST API
 
-- Docker and Kubernates examples are added.
+- 🐳 Docker – Containerization for easy deployment
 
-## Docker build
+- ☸️ Kubernetes – Container orchestration
 
-```properties
-docker build -t soumiknandi/fast-api-rest .
+## 📂 Project Structure
+
+```bash
+.
+├── src/
+│   ├── main.py              # App code starting point
+│   ├── Dockerfile           # Docker setup for the app
+│   └── requirements.txt
+├── kustomization/           # Kubernetes deployment and service YAMLs
+├── docker-compose/          # Docker compose file for the app
+├── README.md
 ```
+
+## 🚀 Features
+- Create, read, update, delete ToDo items
+
+- RESTful API endpoints
+
+- Dockerized for easy container - deployment
+
+- Kubernetes manifests for scalable deployment
+
+## 📦 Setup (Locally with Docker)
+```bash
+docker compose up
+```
+
+Access the app at: http://localhost:8000
+
+## ☸️ Deploy on Kubernetes (Minikube / Cluster)
+```bash
+kubectl apply -k kustomization/
+```
+
+## 📄 API Documentation
+FastAPI auto-generates:
+
+- Swagger UI: http://\<host\>:\<port\>/docs
+
+## ✅ Todo 
+- [ ] ARGO CD
+- [ ] GitHub Actions for CI
+- [ ] Helm
