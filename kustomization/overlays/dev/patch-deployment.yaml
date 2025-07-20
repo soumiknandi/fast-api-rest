@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fast-api-rest
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - name: fast-api-rest
+          image: soumiknandi/fast-api-rest
+          env:
+            - name: username
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: username
+            - name: password
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password
+            - name: database
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: database                  

@@ -1,9 +1,0 @@
-resources:
-- database/ps-claim.yml
-- database/ps-configmap.yml
-- database/ps-deployment.yml
-- database/ps-pv.yml
-- database/ps-service.yml
-
-- application/deployment.yml
-- application/service.yml

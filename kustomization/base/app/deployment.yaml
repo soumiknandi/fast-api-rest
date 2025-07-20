@@ -22,3 +22,5 @@ spec:
           env:
             - name: host
               value: postgres
+            - name: port
+              value: "5432"
