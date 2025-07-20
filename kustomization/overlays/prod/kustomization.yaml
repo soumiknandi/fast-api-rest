@@ -1,6 +1,6 @@
 resources:
   - ../../base
 
-patchesStrategicMerge:
-  - patch-deployment.yaml
-  - patch-statefulset.yaml
+patches:
+  - path: patch-deployment.yaml
+  - path: patch-statefulset.yaml
