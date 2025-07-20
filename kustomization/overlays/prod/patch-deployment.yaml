@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fast-api-rest
-  namespace: fast-api-rest-prod
+  namespace: argocd
 spec:
   template:
     spec:
