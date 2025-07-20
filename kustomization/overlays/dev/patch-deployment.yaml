@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: fast-api-rest
 spec:
+  replicas: 2
   template:
     spec:
       containers:
