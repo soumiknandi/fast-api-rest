@@ -44,7 +44,18 @@ Access the app at: http://localhost:8000
 
 ## ☸️ Deploy on Kubernetes (Minikube / Cluster)
 ```bash
-kubectl apply -k kustomization/
+kubectl apply -k kustomization/overlays/dev
+```
+
+## 🔁 Argo CD
+```
+argocd app create fast-api-rest-prod \
+--repo https://github.com/soumiknandi/fast-api-rest.git \
+--path kustomization/overlays/prod \
+--dest-server https://kubernetes.default.svc \
+--dest-namespace fast-api-rest-prod \
+--sync-option CreateNamespace=true \
+--sync-policy automated
 ```
 
 ## 📄 API Documentation
@@ -53,6 +64,6 @@ FastAPI auto-generates:
 - Swagger UI: http://\<host\>:\<port\>/docs
 
 ## ✅ Todo 
-- [ ] ARGO CD
+- [X] ARGO CD
 - [ ] GitHub Actions for CI
 - [ ] Helm
