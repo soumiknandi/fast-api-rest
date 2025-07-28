@@ -65,5 +65,5 @@ FastAPI auto-generates:
 
 ## ✅ Todo 
 - [X] ARGO CD
-- [ ] GitHub Actions for CI
+- [X] GitHub Actions for CI
 - [ ] Helm
