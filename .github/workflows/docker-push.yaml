@@ -3,9 +3,6 @@ name: docker-push
 # On manually triggered workflow, used to push the Docker image to the registry.
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 # This workflow builds and pushes a Docker image to Docker Hub.
 jobs:
