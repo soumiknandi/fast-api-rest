@@ -1,0 +1,24 @@
+namespace: fast-api-rest
+
+app:
+  name: fast-api-rest
+  image:
+    name: soumiknandi/fast-api-rest
+    tag: latest
+
+configmap:
+  name: postgres-config
+
+db:
+  password: password
+  port: 5432
+
+postgresql:
+  auth:
+    existingSecret: postgres-secret
+    username: postgresuser
+    database: fastapi
+    secretKeys:
+      userPasswordKey: database_password        
+  volumePermissions:
+    enabled: true

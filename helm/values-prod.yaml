@@ -1,0 +1,11 @@
+namespace: fast-api-rest-prod
+
+app:
+  name: fast-api-rest
+
+db:
+  password: passwordprod
+
+postgresql:
+  auth:
+    database: fastapiprod

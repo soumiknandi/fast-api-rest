@@ -11,6 +11,10 @@ This is a simple and scalable ToDo API built with Python FastAPI and PostgreSQL 
 
 - ☸️ Kubernetes – Container orchestration
 
+- 🚀 Argo CD – GitOps-based continuous delivery
+
+- 🛠️ Helm – Kubernetes manifest templating
+
 ## 📂 Project Structure
 
 ```bash
@@ -19,7 +23,9 @@ This is a simple and scalable ToDo API built with Python FastAPI and PostgreSQL 
 │   ├── main.py              # App code starting point
 │   ├── Dockerfile           # Docker setup for the app
 │   └── requirements.txt
+├── .github/                 # GitHub Actions folder
 ├── kustomization/           # Kubernetes deployment and service YAMLs
+├── helm/                    # Helm charts
 ├── docker-compose/          # Docker compose file for the app
 ├── README.md
 ```
@@ -47,7 +53,10 @@ Access the app at: http://localhost:8000
 kubectl apply -k kustomization/overlays/dev
 ```
 
-## 🔁 Argo CD
+## 🚀 Argo CD
+
+Use below command to run using ARGO CD or via GUI.
+
 ```
 argocd app create fast-api-rest-prod \
 --repo https://github.com/soumiknandi/fast-api-rest.git \
@@ -58,6 +67,37 @@ argocd app create fast-api-rest-prod \
 --sync-policy automated
 ```
 
+## 🛠️ Helm
+
+Steps to follow
+
+- Run helm package command
+
+    ```bash
+    cd helm
+    helm dependency update fastapi-postgres
+    ```
+
+- Run below command from project root based on the environment
+
+    - Base
+
+        ```bash
+        helm install release-fast-api helm/ --values helm/values.yaml -n fast-api-rest --create-namespace
+        ```
+
+    - Dev
+
+        ```bash
+        helm install release-fast-api helm/ --values helm/values.yaml -f helm/values-dev.yaml -n fast-api-rest-dev --create-namespace
+        ```
+
+    - Prod
+
+        ```bash
+        helm install release-fast-api helm/ --values helm/values.yaml -f helm/values-prod.yaml -n fast-api-rest-prod --create-namespace
+        ```
+
 ## 📄 API Documentation
 FastAPI auto-generates:
 
@@ -66,4 +106,4 @@ FastAPI auto-generates:
 ## ✅ Todo 
 - [X] ARGO CD
 - [X] GitHub Actions for CI
-- [ ] Helm
+- [X] Helm

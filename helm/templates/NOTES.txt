@@ -1,0 +1,3 @@
+To open the application in local run the below command:
+
+kubectl -n {{ .Values.namespace }} port-forward service/{{ .Release.Name }}-{{ .Values.app.name }} 8091:8000
